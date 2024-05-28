@@ -1,6 +1,7 @@
 import picar_4wd as fc
 
-speed = 30
+# speed = 30
+speed = 5
 
 
 def is_obstacle_detected():

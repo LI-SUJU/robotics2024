@@ -131,7 +131,7 @@ def main():
                     current_state = check_center_state(img, contours, 60)
                     print("far", current_state)
                     adjust_rotate(current_state)
-                elif width_percentage > 0.7:
+                elif width_percentage > 0.5:
                     print("touch")
                     stop()
                     is_touch = True
