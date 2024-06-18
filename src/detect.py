@@ -58,11 +58,10 @@ def color_detect(img, color_name):
     return img, mask, morphologyEx_img, contours
 
 def classify_shape(contour):
-    # 建立一个周长(Rolex)来确定多边形近似
     peri = cv2.arcLength(contour, True)
     approx = cv2.approxPolyDP(contour, 0.04 * peri, True)
     
-    # 根据逼近多边形的顶点数来识别形状
+    # determine the shape based on the numbers of approx
     if len(approx) == 3:
         return "Triangle"
     elif len(approx) == 4:
@@ -75,30 +74,23 @@ def classify_shape(contour):
     return "Unknown"
 
 def shape_detect(image):
-    # 转换为灰度图
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    
-    # 应用高斯模糊
     blurred = cv2.GaussianBlur(gray, (5, 5), 0)
     
-    # 应用二值化
     _, mask = cv2.threshold(blurred, 60, 255, cv2.THRESH_BINARY)
     
-    # 形态学操作去除噪声
     kernel_5 = cv2.getStructuringElement(cv2.MORPH_RECT, (5, 5))
     morphologyEx_img = cv2.morphologyEx(mask, cv2.MORPH_OPEN, kernel_5, iterations=1)
     
-    # 查找轮廓
+    # find contours
     contours, _ = cv2.findContours(morphologyEx_img.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
     
-    # 初始化新的图像来绘制轮廓
     contours_img = image.copy()
     
     for contour in contours:
-        # 获取形状类型
         shape = classify_shape(contour)
         
-        # 绘制轮廓和形状名称
+        # draw contours
         cv2.drawContours(contours_img, [contour], -1, (0, 255, 0), 2)
         M = cv2.moments(contour)
         if M["m00"] != 0:

@@ -1,7 +1,7 @@
 import time
 import picar_4wd as fc
 import random
-import obstacle_avoidance_h
+import obstacle_avoidance
 from detect import detect1, contour_pos1
 
 import cv2
@@ -115,7 +115,7 @@ def spiral_search(duration):
     else:
         is_found = False
 
-    if obstacle_avoidance_h.is_obstacle_detected():
+    if obstacle_avoidance.is_obstacle_detected():
         is_obstacle = True
     else:
         is_obstacle = False
@@ -139,7 +139,7 @@ def spiral_search(duration):
             move_distance += 1  # 增加移动距离
         else:
             print("检测到障碍物，避开")
-            obstacle_avoidance_h.obstacle_avoiding()  # 调用避障逻辑
+            obstacle_avoidance.obstacle_avoiding()  # 调用避障逻辑
 
     # if is_found:  # 如果检测到目标
     print("目标检测到，停止螺旋搜索")
@@ -163,9 +163,9 @@ def approach_target():
         print("目标已触碰，停止前进")
         stop()
         return True  # 目标已触碰，终止
-    if obstacle_avoidance_h.is_obstacle_detected():  # 如果检测到障碍物
+    if obstacle_avoidance.is_obstacle_detected():  # 如果检测到障碍物
         print("检测到障碍物，避开")
-        obstacle_avoidance_h.obstacle_avoiding()  # 调用避障逻辑
+        obstacle_avoidance.obstacle_avoiding()  # 调用避障逻辑
     time.sleep(0.1)
 
 def main():
