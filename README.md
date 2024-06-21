@@ -1,6 +1,8 @@
 # 2024 Robotics Final Project Color-Based Object Detection
+## Find a nicely formatted report !(here)[https://github.com/LI-SUJU/robotics2024/edit/main/README.md]
+## Team Ballobot: Shan Jiang Jiayi Wu Suju Li Pu Li Ruhao Han 
 
-## Team Ballobot: Shan Jiang Jiayi Wu Suju Li Pu Li Ruhao Han Abstract
+## Abstract
 
 In this report, we present the development of an autonomous robotic system with object detection, spiral search, and obstacle avoidance. The system utilizes OpenCV for real-time image processing and Raspberry Pi for execution, focusing on colorbased object detection in the HSV color space.
 
