@@ -1,5 +1,5 @@
 # 2024 Robotics Final Project Color-Based Object Detection
-## Find a nicely formatted report !(here)[https://github.com/LI-SUJU/robotics2024/edit/main/README.md]
+## Find a nicely formatted report ![here](https://github.com/LI-SUJU/robotics2024/edit/main/README.md)
 ## Team Ballobot: Shan Jiang Jiayi Wu Suju Li Pu Li Ruhao Han 
 
 ## Abstract
